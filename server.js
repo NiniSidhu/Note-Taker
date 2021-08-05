@@ -20,4 +20,4 @@ app.use(express.static('public'));
 //Listens to the port and displayes the current port of the local host
 app.listen (PORT, () => {
     console.log(`API server is not on port ${PORT}`);
-})
+}); 
