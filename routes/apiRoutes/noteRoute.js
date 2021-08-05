@@ -1,7 +1,7 @@
 const router = require ('express').Router(); 
 
-const { deleteById, findById, createNewNote, validNote } = require('../../../lib/notes');
-const { notes } = require('../../../db/db.json');
+const { deleteById, findById, createNewNote, validNote } = require('../../lib/notes');
+const { notes } = require('../../db/db.json');
 
 //To GET all notes 
 router.get('/notes', (req, res) => {
