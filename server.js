@@ -14,6 +14,9 @@ const app = express ();
 app.use(express.urlencoded({ extended: true }));
 //To parse in data we get from the user 
 app.use(express.json());
+
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes); 
 //To load stylesheet and JS files of the HTMLS 
 app.use(express.static('public'));
 
