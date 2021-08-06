@@ -7,7 +7,7 @@ const express = require('express');
 const { notes } = require('./db/db.json');
 
 //Express function that will deploy the function on heroku or local host 3001. 
-const PORT = process.env.PORT || 3001; 
+const PORT = process.env.PORT || 3002; 
 //Initiates express 
 const app = express (); 
 //parse incoming string data or array data 

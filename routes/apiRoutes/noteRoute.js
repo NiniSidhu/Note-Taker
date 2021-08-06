@@ -1,10 +1,11 @@
 const router = require ('express').Router(); 
 
 const { deleteById, findById, createNewNote, validateNote } = require('../../lib/notes');
-const { notes } = require('../../db/db');
-
+const { notes }  = require('../../db/db');
+console.log(notes)
 //To GET all notes 
 router.get('/notes', (req, res) => {
+    // console.log(notes);
     res.json(notes);
 });
 
@@ -17,15 +18,18 @@ router.get('/notes/:id', (req, res) => {
 //To POST a new note 
 router.post('/notes', (req,res) => {
     req.body.id = Date.now().toString(); // Assigns today's date as ID of the note 
-    
+    const note = createNewNote(req.body, notes); 
+    console.log(note);
+    res.json(note);
     //Checking for the format of the note 
     if (!validateNote(req.body)){
-        res.status(400).send('The note is not in the correct format!');
-    }else{
-        const note = createNewNote(req.body, notes); 
-        console.log(note);
-        res.json(note);
+        res.status(400).send('The note is not in the correct format!')
     }
+    // else{
+    //     const note = createNewNote(req.body, notes); 
+    //     console.log(note);
+    //     res.json(note);
+    // }
 });
 
 //To DELETE a note 
